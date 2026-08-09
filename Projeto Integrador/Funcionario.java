@@ -1,55 +1,60 @@
 package projeto.integrador;
 
-public class Funcionario {
+public abstract class Funcionario {
+
     private static int contador = 1;
+
     private int id;
     private String nome;
     private String cpf;
     private double salario;
     private String cargo;
 
-    public Funcionario(){
+    public Funcionario() {
+
         id = contador;
         contador++;
+
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getCpf(){
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf){
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public double getSalario(){
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(double salario){
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 
-    public String getCargo(){
+    public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo){
+    public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
-    public void mostrarDados(){
+    public void mostrarDados() {
+
         System.out.println("---------------------------");
         System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
@@ -57,5 +62,6 @@ public class Funcionario {
         System.out.println("Salario: R$ " + salario);
         System.out.println("Cargo: " + cargo);
         System.out.println("---------------------------");
+
     }
 }

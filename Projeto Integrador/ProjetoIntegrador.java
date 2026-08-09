@@ -1,6 +1,7 @@
 package projeto.integrador;
 
 import java.util.Scanner;
+
 public class ProjetoIntegrador {
 
     public static void main(String[] args) {
@@ -12,70 +13,108 @@ public class ProjetoIntegrador {
         int opcao;
 
         do {
-            System.out.println("\n" + "MENU" + "\n");
-            System.out.println("1 - Cadastrar Funcionario");
-            System.out.println("2 - Cadastrar Caixa");
+
+            System.out.println("\n========= MENU =========");
+            System.out.println("1 - Cadastrar Gerente");
+            System.out.println("2 - Cadastrar Operador de Caixa");
             System.out.println("3 - Realizar Pagamento");
             System.out.println("4 - Listar Funcionarios");
-            System.out.println("5 - Listar Caixas");
-            System.out.println("6 - Listar Pagamentos");
-            System.out.println("7 - Sair");
-            System.out.println("8 - Autodestruição");
+            System.out.println("5 - Listar Pagamentos");
+            System.out.println("6 - Sair");
             System.out.print("Escolha uma opcao: ");
 
             opcao = teclado.nextInt();
             teclado.nextLine();
 
-            switch (opcao){
+            switch (opcao) {
+
                 case 1:
-                    Funcionario funcionario = new Funcionario();
+
+                    Gerente gerente = new Gerente();
+
                     System.out.print("Nome: ");
-                    funcionario.setNome(teclado.nextLine());
+                    gerente.setNome(teclado.nextLine());
+
                     System.out.print("CPF: ");
-                    funcionario.setCpf(teclado.nextLine());
+                    gerente.setCpf(teclado.nextLine());
+
                     System.out.print("Salario: ");
-                    funcionario.setSalario(teclado.nextDouble());
+                    gerente.setSalario(teclado.nextDouble());
                     teclado.nextLine();
-                    System.out.print("Cargo: ");
-                    funcionario.setCargo(teclado.nextLine());
-                    loja.cadastrarFuncionario(funcionario);
-                    System.out.println("Funcionario cadastrado com sucesso!");
+
+                    System.out.print("Setor: ");
+                    gerente.setSetor(teclado.nextLine());
+
+                    System.out.print("Bonus: ");
+                    gerente.setBonus(teclado.nextDouble());
+                    teclado.nextLine();
+
+                    loja.adicionarFuncionario(gerente);
+
                     break;
+
                 case 2:
-                    Caixa caixa = new Caixa();
-                    Funcionario operador = new Funcionario();
-                    System.out.print("Nome do operador: ");
+
+                    OperadorCaixa operador = new OperadorCaixa();
+
+                    System.out.print("Nome: ");
                     operador.setNome(teclado.nextLine());
-                    caixa.setOperador(operador);
-                    caixa.abrirCaixa();
-                    loja.cadastrarCaixa(caixa);
-                    System.out.println("Caixa cadastrado com sucesso!");
-                    break;
-                case 3:
-                    Pagamento pagamento = new Pagamento();
-                    System.out.print("Valor da venda: ");
-                    pagamento.setValorVenda(teclado.nextDouble());
+
+                    System.out.print("CPF: ");
+                    operador.setCpf(teclado.nextLine());
+
+                    System.out.print("Salario: ");
+                    operador.setSalario(teclado.nextDouble());
                     teclado.nextLine();
+
+                    loja.adicionarFuncionario(operador);
+
+                    System.out.println("Numero do Caixa: "
+                            + operador.getNumeroCaixa());
+
+                    break;
+
+                case 3:
+
+                    Pagamento pagamento = new Pagamento();
+
+                    System.out.print("Valor do pagamento: ");
+                    pagamento.setValor(teclado.nextDouble());
+                    teclado.nextLine();
+
                     System.out.print("Modalidade de pagamento: ");
                     pagamento.setModalidadePagamento(teclado.nextLine());
+
                     pagamento.realizarPagamento();
-                    loja.cadastrarPagamento(pagamento);
+
+                    loja.adicionarPagamento(pagamento);
+
                     break;
+
                 case 4:
+
                     loja.listarFuncionarios();
+
                     break;
+
                 case 5:
-                    loja.listarCaixas();
-                    break;
-                case 6:
+
                     loja.listarPagamentos();
+
                     break;
-                case 7:
+
+                case 6:
+
                     System.out.println("Sistema encerrado.");
+
                     break;
+
                 default:
-                    System.out.println("Opcao invalida.");
+
+                    System.out.println("Opcao invalida!");
+
             }
-        } while (opcao != 7);
+
+        } while (opcao != 6);
     }
 }
