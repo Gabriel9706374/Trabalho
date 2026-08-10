@@ -1,11 +1,11 @@
 package projeto.integrador;
-public class Pagamento {
+
+public abstract class Pagamento {
 
     private static int contador = 1;
 
     private int numeroPagamento;
     private double valor;
-    private String modalidadePagamento;
     private String status;
 
     public Pagamento() {
@@ -14,7 +14,6 @@ public class Pagamento {
         contador++;
 
         status = "PENDENTE";
-
     }
 
     public int getNumeroPagamento() {
@@ -29,22 +28,13 @@ public class Pagamento {
         this.valor = valor;
     }
 
-    public String getModalidadePagamento() {
-        return modalidadePagamento;
-    }
-
-    public void setModalidadePagamento(String modalidadePagamento) {
-        this.modalidadePagamento = modalidadePagamento;
-    }
-
     public String getStatus() {
         return status;
     }
 
     public void realizarPagamento() {
 
-        if (valor > 0 && modalidadePagamento != null
-                && !modalidadePagamento.isEmpty()) {
+        if (valor > 0) {
 
             status = "APROVADO";
 
@@ -54,18 +44,20 @@ public class Pagamento {
 
             status = "REPROVADO";
 
-            System.out.println("Pagamento invalido!");
+            System.out.println("O valor do pagamento deve ser maior que zero.");
 
         }
-
     }
+    
+    protected void aprovarPagamento() {
+    status = "APROVADO";
+}
 
     public void mostrarPagamento() {
 
         System.out.println("---------------------------");
         System.out.println("Numero do pagamento: " + numeroPagamento);
         System.out.println("Valor: R$ " + valor);
-        System.out.println("Modalidade: " + modalidadePagamento);
         System.out.println("Status: " + status);
         System.out.println("---------------------------");
 

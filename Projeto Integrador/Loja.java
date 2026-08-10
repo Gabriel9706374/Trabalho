@@ -1,4 +1,5 @@
 package projeto.integrador;
+
 import java.util.ArrayList;
 
 public class Loja {
@@ -29,7 +30,6 @@ public class Loja {
         funcionarios.add(funcionario);
 
         System.out.println("Funcionario cadastrado com sucesso!");
-
     }
 
     public void listarFuncionarios() {
@@ -47,13 +47,13 @@ public class Loja {
             }
 
         }
-
     }
 
     public void adicionarPagamento(Pagamento pagamento) {
 
         pagamentos.add(pagamento);
 
+        System.out.println("Pagamento cadastrado com sucesso!");
     }
 
     public void listarPagamentos() {
