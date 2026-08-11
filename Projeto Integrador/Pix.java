@@ -17,18 +17,20 @@ public class Pix extends Pagamento {
     }
 
     @Override
-    public void realizarPagamento() {
+public void realizarPagamento() {
 
-        if (getValor() > 0 && chavePix != null && !chavePix.isEmpty()) {
+    if (getValor() > 0 && chavePix != null && !chavePix.isEmpty()) {
 
-            System.out.println("Pagamento por PIX realizado com sucesso!");
+        aprovarPagamento();
 
-        } else {
+        System.out.println("Pagamento por PIX realizado com sucesso!");
 
-            System.out.println("Pagamento PIX invalido!");
+    } else {
 
-        }
+        System.out.println("Pagamento PIX invalido!");
+
     }
+}
 
     @Override
     public void mostrarPagamento() {
@@ -39,6 +41,6 @@ public class Pix extends Pagamento {
         System.out.println("Chave PIX: " + chavePix);
         System.out.println("Status: " + getStatus());
         System.out.println("---------------------------");
-
+        
     }
 }

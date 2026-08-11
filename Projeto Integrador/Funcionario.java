@@ -9,6 +9,7 @@ public abstract class Funcionario {
     private String cpf;
     private double salario;
     private String cargo;
+    private String senha;
 
     public Funcionario() {
 
@@ -51,6 +52,14 @@ public abstract class Funcionario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void mostrarDados() {

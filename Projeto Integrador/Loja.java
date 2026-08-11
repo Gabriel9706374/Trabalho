@@ -49,6 +49,21 @@ public class Loja {
         }
     }
 
+    public Funcionario buscarFuncionarioPorId(int id) {
+
+        for (Funcionario funcionario : funcionarios) {
+
+            if (funcionario.getId() == id) {
+
+                return funcionario;
+
+            }
+
+        }
+
+        return null;
+    }
+
     public void adicionarPagamento(Pagamento pagamento) {
 
         pagamentos.add(pagamento);
@@ -70,5 +85,34 @@ public class Loja {
 
             }
         }
+    }
+
+    public void gerarRelatorioVendas() {
+
+        if (pagamentos.isEmpty()) {
+
+            System.out.println("\nNenhuma venda realizada.");
+
+            return;
+        }
+
+        double totalVendas = 0;
+
+        System.out.println("\n========================================");
+        System.out.println("         RELATORIO DE VENDAS");
+        System.out.println("========================================");
+
+        for (Pagamento pagamento : pagamentos) {
+
+            pagamento.mostrarPagamento();
+
+            totalVendas += pagamento.getValor();
+
+        }
+
+        System.out.println("----------------------------------------");
+        System.out.printf("TOTAL DE VENDAS: R$ %.2f%n", totalVendas);
+        System.out.println("========================================");
+
     }
 }
